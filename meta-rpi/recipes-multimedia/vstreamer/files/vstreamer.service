@@ -1,0 +1,15 @@
+[Unit]
+Description=Network Video Stream Service
+After=network.target
+
+[Service]
+Type=notify
+PIDFile=/run/vstreamer.pid
+RemainAfterExit=yes
+ExecStart=/bin/bash -l -c 'exec "$@"' _ /bin/vstreamer.sh /dev/video0 rtsp://10.0.0.10:8888/live.sdp
+Restart=on-failure
+RestartSec=5
+TimeoutSec=120
+WatchdogSec=180
+[Install]
+WantedBy=multi-user.target

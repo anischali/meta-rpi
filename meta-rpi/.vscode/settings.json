@@ -1,0 +1,8 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/anicha1/yocto/raspberry-pi/meta-rpi/sources/poky/bitbake/lib"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/anicha1/yocto/raspberry-pi/meta-rpi/sources/poky/bitbake/lib"
+    ]
+}

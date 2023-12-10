@@ -1,0 +1,8 @@
+network:
+  renderer: networkd
+  version: 2
+  ethernets:
+    eth0:
+      dhcp-identifier: mac
+      dhcp4: true
+      dhcp6: false

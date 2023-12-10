@@ -1,0 +1,15 @@
+### Shell environment set up for builds. ###
+
+You can now run 'bitbake <target>'
+
+Common targets are:
+    meta-ide-support
+    fip500-internal-image
+    fip500-internal-ota-image
+    fip500-internal-ota
+    fip500-internal-pkg
+    
+To build the SDK for this POC, use this command:
+    fip500-internal-image -c populate_sdk
+
+To work on a recipe or source, use the devtool command.
