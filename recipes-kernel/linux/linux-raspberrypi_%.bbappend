@@ -1,1 +1,1 @@
-include kernel-kmeta.inc
+include kernel-configs.inc

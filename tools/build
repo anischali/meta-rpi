@@ -1,0 +1,9 @@
+#! /usr/bin/env bash
+
+curr_dir="$(dirname $(realpath ${0}))"
+
+docker build "${curr_dir}" \
+        --build-arg "username=$(id -u -n)" \
+        --build-arg "user_id=$(id -u)" \
+        --build-arg "group_id=$(id -g)" \
+        -t localhost/yocto-builder

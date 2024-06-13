@@ -1,0 +1,12 @@
+#! /usr/bin/env bash
+
+pin="${1}"
+delay="${2}"
+
+[ ! -e "/sys/class/gpio/gpio${pin}" ] && echo ${pin} > /sys/class/gpio/export
+
+echo out > /sys/class/gpio/gpio${pin}/direction
+echo 1 > /sys/class/gpio/gpio${pin}/value
+sleep ${delay}
+echo 0 > /sys/class/gpio/gpio${pin}/value
+
