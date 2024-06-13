@@ -19,8 +19,8 @@ SRC_URI = "\
 
 
 do_install() {
-    install -D ${D}${bindir}
-    install -m 0755 ${S}/power-switch ${D}${bindir}
+    install -d ${D}${bindir}
+    install -m 0755 ${S}/power-switch ${D}${bindir}/
 }
 
 FILES:${PN} = " \
