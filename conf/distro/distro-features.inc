@@ -1,0 +1,1 @@
+DISTRO_FEATURES:raspberry-pi3b:append = "ipv6"

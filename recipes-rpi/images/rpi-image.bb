@@ -2,6 +2,14 @@
 # Base this image on core-image-minimal
 include recipes-core/images/core-image-minimal.bb
 require rpi-development-features.inc
+inherit extrausers
+
+# The clear password with -P is not supported anymore.
+PASSWD = "$(openssl passwd -6 @visibigSina21624374$!)"
+# Sets a password for the root user
+EXTRA_USERS_PARAMS = "\
+    usermod -p '${PASSWD}' root; \
+"
 
 SUMMARY = "Standard development image" 
 DESCRIPTION = "Standard development image for raspberry pi"
@@ -22,4 +30,6 @@ IMAGE_INSTALL += " \
     linux-firmware-bcm43430 \
     hostapd \
     dnsmasq \
-    "
+    user-session \
+    iptables \
+"

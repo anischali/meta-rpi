@@ -1,0 +1,17 @@
+#! /usr/bin/env bash
+
+config="${1}"
+
+curr_dir="$(dirname $(realpath ${0}))"
+
+docker run --rm -it \
+            -e "curr_dir=${curr_dir}" \
+            --net host \
+            --mount type=bind,source="${HOME}",destination="${HOME}" \
+            --workdir "${curr_dir}/.." \
+            --user $(id -u -n) \
+            -e "PATH=/usr/local/bin/:/usr/bin:/bin" \
+            localhost/yocto-builder \
+            /bin/sh
+            
+            
