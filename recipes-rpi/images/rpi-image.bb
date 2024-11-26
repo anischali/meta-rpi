@@ -5,7 +5,7 @@ require rpi-development-features.inc
 inherit extrausers
 
 # The clear password with -P is not supported anymore.
-PASSWD = "$(openssl passwd -6 @visibigSina21624374$!)"
+PASSWD = "$(openssl passwd -6 ${CREDENTIAL_ROOT_PASSWD})"
 # Sets a password for the root user
 EXTRA_USERS_PARAMS = "\
     usermod -p '${PASSWD}' root; \
@@ -32,4 +32,5 @@ IMAGE_INSTALL += " \
     dnsmasq \
     user-session \
     iptables \
+    host-ctl \
 "

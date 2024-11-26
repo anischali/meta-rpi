@@ -9,12 +9,14 @@ S = "${WORKDIR}"
 
 EXCLUDE_FROM_WORLD = "1"
 
-LOCAL_USERNAME ??= "user"
-LOCAL_PASSWORD ??= "user"
+CREDENTIAL_PASSWD ?= "user"
+CREDENTIAL_USER ?= "user"
+CREDENTIAL_GROUP ?= "user"
+CREDENTIAL_USER_ID ?= "800"
 
-PASSWD = "$(openssl passwd -6 ${LOCAL_PASSWORD})"
+PASSWD = "$(openssl passwd -6 ${CREDENTIAL_PASSWD})"
 
-USERADD_PARAM:${PN} = "-p '${PASSWD}' -u 899 -d /home/users/${LOCAL_USERNAME} -r -s /bin/bash ${LOCAL_USERNAME}"
+USERADD_PARAM:${PN} = "-p '${PASSWD}' -u ${CREDENTIAL_USER_ID} -d /home/users/${CREDENTIAL_USER} -r -s /bin/bash ${CREDENTIAL_USER}"
 
 PACKAGES = "${PN}"
 
@@ -24,12 +26,13 @@ GROUPADD_PARAM:${PN} = "\
  -r -f input; \
  -r -f power; \
  -r -f networking; \
+ -r -f ${CREDENTIAL_GROUP} \
  -r -f sudo \
- -r -f visibog \
 "
 
 RDEPENDS:${PN} += " \
-    sudo \
+    sudo-sudo \
+    sudo-lib \
 "
 
 DEPENDS += "openssl-native"
