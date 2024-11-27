@@ -1,0 +1,9 @@
+#! /usr/bin/env bash
+
+
+if [ $# -lt 2 ]; then
+    echo "${0} <image.wic.bz2> </dev/sdX>"
+    exit 0
+fi
+
+bunzip2 -c "${1}" | sudo dd of="${2}" bs=1M  iflag=fullblock oflag=direct conv=fsync
