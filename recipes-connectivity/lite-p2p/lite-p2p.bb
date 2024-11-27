@@ -15,10 +15,6 @@ inherit cmake pkgconfig
 
 S = "${WORKDIR}/git"
 
-PACKAGECONFIG ??= "lite-p2p utils"
+PACKAGECONFIG ??= "utils"
 PACKAGECONFIG[debug] = "-DCMAKE_BUILD_TYPE=Debug,-DCMAKE_BUILD_TYPE=Release,"
 PACKAGECONFIG[utils] = "-DLITE_P2P_TEST_TOOLS=ON,-DLITE_P2P_TEST_TOOLS=OFF,"
-
-PACKAGES += "${@bb.utils.contains('PACKAGECONFIG', 'utils', '${PN}-utils', '', d)}"
-FILES:${PN}-utils += "${bindir}"
-RDEPENDS:${PN}-utils += "${PN}"
