@@ -4,11 +4,12 @@ include recipes-core/images/core-image-minimal.bb
 require rpi-development-features.inc
 inherit extrausers
 
+CREDENTIAL_ROOT_PASSWD ?= "new_pass"
 # The clear password with -P is not supported anymore.
 PASSWD = "$(openssl passwd -6 ${CREDENTIAL_ROOT_PASSWD})"
 # Sets a password for the root user
 EXTRA_USERS_PARAMS = "\
-    usermod -p '${PASSWD}' root; \
+    usermod -p ${PASSWD} root; \
 "
 
 SUMMARY = "Standard development image" 

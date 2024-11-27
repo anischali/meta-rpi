@@ -31,7 +31,7 @@ GROUPADD_PARAM:${PN} = "\
 "
 
 RDEPENDS:${PN} += " \
-    sudo-sudo \
+    sudo \
     sudo-lib \
 "
 
@@ -54,8 +54,7 @@ do_install () {
     install -m 0660 ${S}/99-sudo.conf ${D}${sysconfdir}/sudoers.d/
 }
 
-# rconflicts with linux firmware nxp89xx
-RREPLACES:${PN} = "sudo"
-RCONFLICTS:${PN} = "sudo"
-RPROVIDES:${PN} = "sudo"
+RREPLACES:${PN} = "sudo sudo-lib"
+RCONFLICTS:${PN} = "sudo sudo-lib"
+RPROVIDES:${PN} = "sudo sudo-lib"
 
