@@ -35,7 +35,7 @@ RDEPENDS:${PN} += " \
     sudo-lib \
 "
 
-DEPENDS += "openssl-native"
+DEPENDS += "openssl-native openssl"
 
 ALLOW_EMPTY:${PN} = "1"
 

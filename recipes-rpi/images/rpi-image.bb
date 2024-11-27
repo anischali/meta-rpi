@@ -9,7 +9,7 @@ CREDENTIAL_ROOT_PASSWD ?= "new_pass"
 PASSWD = "$(openssl passwd -6 ${CREDENTIAL_ROOT_PASSWD})"
 # Sets a password for the root user
 EXTRA_USERS_PARAMS = "\
-    usermod -p ${PASSWD} root; \
+    usermod -p '${PASSWD}' root; \
 "
 
 SUMMARY = "Standard development image" 
