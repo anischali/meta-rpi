@@ -35,5 +35,4 @@ IMAGE_INSTALL += " \
     iptables \
     host-ctl \
     lite-p2p \
-    lite-p2p-utils \
 "
