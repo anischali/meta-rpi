@@ -1,1 +1,1 @@
-DEPENDS:append = " bison-native flex-native"
+DEPENDS:append = " bison-native flex-native openssl"
