@@ -11,6 +11,10 @@ BB_STRICT_CHECKSUM = "0"
 
 SRCREV = "${AUTOREV}"
 
+DEPENDS = "\
+    openssl \
+"
+
 inherit cmake pkgconfig
 
 S = "${WORKDIR}/git"
