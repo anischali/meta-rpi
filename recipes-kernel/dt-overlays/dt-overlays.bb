@@ -1,6 +1,6 @@
 SUMMARY = "Deploy sevral dt-overlays on the target platform."
 AUTHOR = "Anis CHALI"
-LICENSE = "CLOSED"
+LICENSE = "GPLv2"
 
 SECTION = "BSP"
 
